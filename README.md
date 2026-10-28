@@ -3,7 +3,7 @@
 A sophisticated full-stack MERN web application that leverages Generative AI (Google Gemini) to analyze job descriptions against a user's professional profile. The platform generates personalized, high-yield interview preparation plans, identifies critical skill gaps, and curates tailored technical and behavioral questions.
 
 ## 🚀 Live Demo
-Check out the live application here: [Live Link](mini-project-7ahtvv03i-mini-project-1219.vercel.app)
+Check out the live application here: [Live Link](mini-project-six-black.vercel.app)
 
 ---
 
