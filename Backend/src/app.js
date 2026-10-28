@@ -12,7 +12,8 @@ app.get("/", (req, res) => {
 })
 
 const allowedOrigins = [
-  'https://gen-ai-resume-check-and-give-plan-a.vercel.app',
+  ',
+  'https://mini-project-six-black.vercel.app',
   'http://localhost:5173'
 ];
 
