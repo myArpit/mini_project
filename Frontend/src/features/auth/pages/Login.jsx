@@ -4,6 +4,7 @@ import toast from 'react-hot-toast'
 import "../auth.form.scss"
 import { useAuth } from '../hooks/useAuth'
 import AuthVisual from '../components/AuthVisual'
+import PasswordVisibilityIcon from '../components/PasswordVisibilityIcon'
 
 const Login = () => {
     const { loading, handleLogin } = useAuth()
@@ -78,7 +79,7 @@ const Login = () => {
                                     aria-label={showPassword ? "Hide password" : "Show password"}
                                     aria-pressed={showPassword}
                                 >
-                                    {showPassword ? "Hide" : "Show"}
+                                    <PasswordVisibilityIcon visible={showPassword} />
                                 </button>
                             </div>
                         </div>
