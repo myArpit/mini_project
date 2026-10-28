@@ -1,0 +1,251 @@
+$bg-navbar: rgba(13, 17, 23, 0.85);
+$border-color: #2a3348;
+$text-primary: #e6edf3;
+$text-muted: #7d8590;
+$accent: #ff2d78;
+$accent-hover: #ff4d8f;
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 2rem;
+    background-color: $bg-navbar;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid $border-color;
+    animation: navbar-slide-in 0.4s ease-out;
+
+    &__brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: $text-primary;
+        text-decoration: none;
+        letter-spacing: -0.02em;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 0.85;
+        }
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 0.6rem;
+        background: linear-gradient(135deg, $accent, #7c3aed);
+        color: #fff;
+        box-shadow: 0 4px 14px rgba($accent, 0.35);
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    &__theme {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        padding: 3px;
+        border: 1px solid var(--nav-border);
+        border-radius: 0.72rem;
+        background: rgba(255, 255, 255, 0.035);
+    }
+
+    &__theme-option {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.38rem;
+        min-height: 30px;
+        padding: 0 0.58rem;
+        border: 0;
+        border-radius: 0.48rem;
+        background: transparent;
+        color: #97a2ba;
+        font: inherit;
+        font-size: 0.72rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
+
+        &:hover { color: #e8ebf8; }
+        &:focus-visible { outline: 2px solid #a995ff; outline-offset: 2px; }
+
+        &--active {
+            background: rgba(121, 91, 255, 0.16);
+            color: #d3caff;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.18);
+        }
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.3rem 0.85rem 0.3rem 0.3rem;
+        background-color: rgba(255, 255, 255, 0.04);
+        border: 1px solid $border-color;
+        border-radius: 2rem;
+    }
+
+    &__avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, $accent, #7c3aed);
+        color: #fff;
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+
+    &__username {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: $text-primary;
+        max-width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.5rem 1.1rem;
+        border-radius: 0.55rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        font-family: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: all 0.2s ease;
+
+        &--primary {
+            background: linear-gradient(135deg, $accent, #e11d63);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba($accent, 0.3);
+
+            &:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 6px 20px rgba($accent, 0.45);
+            }
+        }
+
+        &--ghost {
+            color: $text-primary;
+            border-color: $border-color;
+            background: transparent;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.06);
+                border-color: lighten($border-color, 10%);
+            }
+        }
+
+        &--logout {
+            color: #ff6b6b;
+            border-color: rgba(#ff6b6b, 0.35);
+            background: rgba(#ff6b6b, 0.08);
+
+            &:hover {
+                background: rgba(#ff6b6b, 0.16);
+                border-color: rgba(#ff6b6b, 0.6);
+            }
+        }
+
+        &:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        &:focus-visible {
+            outline: 2px solid lighten($accent, 18%);
+            outline-offset: 3px;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navbar { animation: none; }
+    .navbar__btn, .navbar__brand { transition: none; }
+}
+
+@keyframes navbar-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 560px) {
+    .navbar {
+        padding: 0.75rem 1rem;
+
+        &__username {
+            display: none;
+        }
+    }
+}
+
+.navbar {
+    --nav-border: rgba(165, 174, 196, 0.14);
+    padding: 0.8rem clamp(1rem, 4vw, 2.5rem);
+    border-bottom-color: var(--nav-border);
+    background: rgba(8, 11, 22, 0.78);
+
+    &__brand { color: #f5f7ff; }
+    &__logo {
+        background: linear-gradient(135deg, #795bff, #d946ef);
+        box-shadow: 0 4px 14px rgba(121, 91, 255, 0.28);
+    }
+
+    &__user { border-color: var(--nav-border); background: rgba(255, 255, 255, 0.035); }
+    &__avatar { background: linear-gradient(135deg, #795bff, #9b56df); }
+    &__username { color: #dfe4f4; }
+
+    &__btn {
+        min-height: 38px;
+        border-radius: 0.62rem;
+        &--primary {
+            background: linear-gradient(110deg, #795bff, #9859e9);
+            box-shadow: 0 4px 14px rgba(121, 91, 255, 0.24);
+        }
+        &--ghost { border-color: var(--nav-border); }
+        &--logout { color: #ff9aab; border-color: rgba(#ff879b, 0.25); background: rgba(#ff879b, 0.07); }
+    }
+}
+
+@media (max-width: 560px) {
+    .navbar {
+        padding: 0.72rem 0.85rem;
+        &__actions { gap: 0.5rem; }
+        &__btn { padding: 0.45rem 0.72rem; font-size: 0.8rem; }
+        &__brand { gap: 0.45rem; font-size: 0.98rem; }
+        &__logo { width: 30px; height: 30px; }
+        &__theme-option { width: 31px; padding: 0; }
+        &__theme-option span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+        &__btn--ghost { padding-inline: 0.55rem; }
+        &__btn--primary { padding-inline: 0.65rem; }
+    }
+}
