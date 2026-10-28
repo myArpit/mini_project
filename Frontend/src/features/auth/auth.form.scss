@@ -124,6 +124,43 @@
         }
     }
 
+    .password-field {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        input { padding-right: 3.25rem; }
+    }
+
+    .password-toggle {
+        position: absolute;
+        top: 50%;
+        right: 0.8rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        padding: 0;
+        border: 0;
+        border-radius: 0.35rem;
+        appearance: none;
+        background: transparent;
+        box-shadow: none;
+        color: #b6a8ff;
+        cursor: pointer;
+        transform: translateY(-50%);
+
+        &:hover,
+        &:active {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        &:hover { color: #e2dcff; }
+        &:focus-visible { outline: 2px solid #a995ff; outline-offset: 1px; }
+    }
+
     .button {
         margin-top: 0.25rem;
         width: 100%;
@@ -282,46 +319,6 @@
                 &::placeholder { color: #7e89a4; }
                 &:focus { border-color: rgba(150, 128, 255, 0.85); box-shadow: 0 0 0 3px rgba(121, 91, 255, 0.16); }
             }
-        }
-
-        .password-field {
-            position: relative;
-            display: flex;
-            align-items: center;
-
-            input { padding-right: 3.25rem; }
-        }
-
-        .password-toggle {
-            position: absolute;
-            top: 50%;
-            right: 0.8rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 2rem;
-            height: 2rem;
-            padding: 0;
-            border: 0;
-            border-radius: 0.35rem;
-            appearance: none;
-            background: none;
-            box-shadow: none;
-            color: #b6a8ff;
-            font: inherit;
-            font-size: 0.73rem;
-            font-weight: 650;
-            cursor: pointer;
-            transform: translateY(-50%);
-
-            &:hover,
-            &:active {
-                background: none;
-                box-shadow: none;
-            }
-
-            &:hover { color: #e2dcff; }
-            &:focus-visible { outline: 2px solid #a995ff; outline-offset: 1px; }
         }
 
         .button {
